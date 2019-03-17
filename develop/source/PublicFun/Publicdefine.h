@@ -1,0 +1,4 @@
+#ifndef PUBLICDEFINE_H
+#define PUBLICDEFINE_H
+
+#endif // PUBLICDEFINE_H
