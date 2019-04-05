@@ -1,0 +1,4 @@
+#ifndef KERNELMACRO_H
+#define KERNELMACRO_H
+
+#endif // KERNELMACRO_H
