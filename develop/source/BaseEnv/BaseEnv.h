@@ -1,13 +1,9 @@
 #ifndef BASEENV_H
-#define BASEENV_H
+#define BASEENV_HBaseEnv
 
-#include "baseenv_global.h"
 
-class BASEENVSHARED_EXPORT BaseEnv
-{
+extern "C" bool StartBaseEnv();
+extern "C" bool StopBaseEnv();
 
-public:
-    BaseEnv();
-};
 
 #endif // BASEENV_H

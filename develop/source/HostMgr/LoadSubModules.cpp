@@ -16,7 +16,7 @@ LoadSubModules::LoadSubModules()
     try {
         ptree::ptree ptreeModules;
         ptree::read_xml(HSM_MODULES_FILE,ptreeModules);
-
+        //获取modules的所有子节点
         auto moduleList = ptreeModules.get_child("modules");
 
         BOOST_FOREACH(ptree::ptree::value_type &v, moduleList)
@@ -29,7 +29,8 @@ LoadSubModules::LoadSubModules()
             m_modulesInfoVet.push_back(info);
         }
     } catch (std::exception& e) {
-        LogError<<(string("读取文件失败") + e.what());
+        LogError<< (string("读取文件失败") + e.what()) << HSM_MODULES_FILE;
+        return ;
     }
     LoadAllModules();
 }
@@ -73,14 +74,14 @@ bool LoadSubModules::LoadAllModules()
         pError = dlerror();
         if (pError || (nullptr == pStartFunHandle))
         {
-            LogError<<(strStartFunName);
+            LogError<<(strStartFunName)<<"  errorcode:"<<static_cast<char*>(pError);
             continue;
         }
 
         pStopFunHandle = dlsym(pModuleHandle,strStopFunName.c_str());
         pError = dlerror();
         if (pError || (nullptr == pStopFunHandle)){
-            LogError<<(strStopFunName);
+            LogError<<(strStopFunName)<<"errorcode:"<<static_cast<char*>(pError);
             continue;
         }
 

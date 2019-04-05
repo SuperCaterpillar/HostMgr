@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <modules>
-<module path="../config/" name="libBaseEnvironmentAudit.so"/>
+<module path="/data/build-HostMgr-Desktop_Qt_5_12_0_GCC_64bit-Debug/develop/build/bin/" name="libBaseEnv.so"/>
 </modules>
 
-	
+
 

@@ -1,12 +1,6 @@
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
-#include <boost/function.hpp>
-#include <boost/thread.hpp>
-
-
 #include "StrategyBaseClass.h"
-#include "PublicFun.h"
+
 
 namespace ptree = boost::property_tree;
 
@@ -27,6 +21,7 @@ struct StrategyBaseClassPrivate
             is_usable = true;
         } catch (...) {
             is_usable = false;
+            LogError<<"没有发现该策略文件  "<<strategyName<<endl;
             return is_usable;
         }
 
@@ -41,7 +36,7 @@ struct StrategyBaseClassPrivate
         path.push_back(strategy_name);
 
         strategy_modif_thread =
-                boost::make_shared<thread>(bind(&PublicPun::monitor_file_system,IN_ALL_EVENTS,path,thread_call));
+                boost::make_shared<thread>(bind(&PublicFun::monitor_file_system,IN_CREATE|IN_DELETE|IN_MODIFY,path,thread_call));
 
         strategy_modif_thread->detach();
 
@@ -62,12 +57,12 @@ StrategyBaseClass::StrategyBaseClass(const string& strategyName)
     m_data = boost::make_shared<StrategyBaseClassPrivate>();
 
     m_data->read(strategyName);
-
 }
 
 StrategyBaseClass::~StrategyBaseClass()
 {
-    m_data->strategy_modif_thread->interrupt();
+    //m_data->strategy_modif_thread->interrupt();
+    //取消系统监控的文件
 }
 
 bool StrategyBaseClass::monitor_strategy_modif(file_sys_monitor_call fun)
@@ -76,6 +71,16 @@ bool StrategyBaseClass::monitor_strategy_modif(file_sys_monitor_call fun)
     if(m_data->is_usable)
         m_data->monitor_file();
     return true;
+}
+
+string StrategyBaseClass::strategy_name()
+{
+    return m_data->strategy_name;
+}
+
+ptree::ptree StrategyBaseClass::get_stragety_ptree()
+{
+    return m_data->strategy_ptree;
 }
 
 bool StrategyBaseClass::usable()

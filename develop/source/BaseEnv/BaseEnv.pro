@@ -9,7 +9,7 @@ QT       -= core gui
 TARGET = BaseEnv
 TEMPLATE = lib
 
-DEFINES += BASEENV_LIBRARY
+include(../../../HostMgr.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -23,13 +23,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        BaseEnv.cpp
+        BaseEnv.cpp \
+    BaseEvnStrategy.cpp \
+    SystemResource.cpp \
+    BaseEvnClass.cpp \
+    BaseEnvMgr.cpp \
+    PortInfo.cpp \
+    AccountInfo.cpp \
+    FirefoxInfo.cpp \
+    NetFlowInfo.cpp \
+    ProcessInfo.cpp \
+    SoftwareInfo.cpp
 
 HEADERS += \
         BaseEnv.h \
-        baseenv_global.h 
+    BaseEvnStrategy.h \
+    SystemResource.h \
+    BaseEvnClass.h \
+    BaseEnvMgr.h \
+    PortInfo.h \
+    AccountInfo.h \
+    FirefoxInfo.h \
+    NetFlowInfo.h \
+    ProcessInfo.h \
+    SoftwareInfo.h
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+DISTFILES += \
+    ../../build/strategy/subStrategy/BaseEvn.xml
+

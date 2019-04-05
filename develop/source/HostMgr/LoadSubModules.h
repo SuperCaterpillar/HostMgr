@@ -1,7 +1,7 @@
 #ifndef LOADSUBMODULES_H
 #define LOADSUBMODULES_H
 
-#include "../PublicFun/KernelDefine.h"
+#include "../PublicFun/Publicdefine.h"
 
 
 struct ModulesInfo

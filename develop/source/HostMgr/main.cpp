@@ -1,11 +1,23 @@
-#include "mainwindow.h"
-#include <QApplication>
+#include "LoadSubModules.h"
+#include "../PublicFun/Logging.h"
+#include "../PublicFun/Timer.h"
+#include <boost/bind.hpp>
 
-int main(int argc, char *argv[])
+
+int main()
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    Logging::instance()->init_logging();
+    //Logging::instance()->set_file_full_path("../log/Run");
+    LoadSubModules l;
 
-    return a.exec();
+
+
+    l.StartAllModules();
+
+
+    while(1)
+    {
+        sleep(20);
+    }
+
 }

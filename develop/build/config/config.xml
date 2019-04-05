@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<HsmAgent version="3.3.2.8011(30146)">
-<InstallVersion version="3.3.2.8011(30146)"></InstallVersion>
-<DevGUID id="">sss</DevGUID>
+<HostVer version="1.0.0.0">
+<InstallVersion version="1.0.0.0"></InstallVersion>
+<HostId id="">sss</HostId>
 <StrategyMD5 md5="">ssss</StrategyMD5>
-<HsmAgentLog log_path="../log/" file_name="RZCJlog" debug="yes" to_screen="no" to_file="yes" ></HsmAgentLog>
-<NsmsServerIP IP="">sss</NsmsServerIP>
-<NsmsSyslogPort Port="514"></NsmsSyslogPort>
+<HostPath log_path="../log/" file_name="run"></HostPath>
+<serviceIp IP="">sss</serviceIp>
 <LocalIP mac="ss" IP="ss" mask="ss"></LocalIP>
-
-</HsmAgent>
+</HostVer>

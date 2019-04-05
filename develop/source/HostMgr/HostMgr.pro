@@ -4,17 +4,16 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       -= core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 
 TARGET = HostMgr
-TEMPLATE = app
+CONFIG += c++11 console
+CONFIG -= app_bundle
 
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which has been marked as deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
+include(../../../HostMgr.pri)
+
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # You can also make your code fail to compile if you use deprecated APIs.
@@ -24,12 +23,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+
+
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+    LoadSubModules.cpp
 
 HEADERS += \
-        mainwindow.h
+    LoadSubModules.h
 
 FORMS += \
         mainwindow.ui
@@ -38,3 +39,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+#unix:!macx: LIBS += -L$$DESTDIR/ -lBaseEnv -lPublicFun
+#message($$OUT_PWD)
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Policy>
+<System interval="10"/>
+<PortInfo interval="10"/>
+<AccountInfo interval="10"/>
+<FirefoxInfo interval="10"/>
+<NetFlowInfo interval="10" />
+<ProcessInfo interval="10" />
+<SoftwareInfo interval="10" />
+</Policy>
