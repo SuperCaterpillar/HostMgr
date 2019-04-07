@@ -14,6 +14,10 @@ LIBS += -lboost_log_setup \
         -lboost_chrono\
         -lboost_atomic\
         -lsqlite3\
-        -ljsoncpp
-LIBS += -L$$DESTDIR/ -lBaseEnv -lPublicFun
+        -ljsoncpp \
+        -lnl-3
+
+INCLUDEPATH += /usr/include/libnl3/ \
+
+#LIBS += -L$$DESTDIR/ -lBaseEnv -lPublicFun
 

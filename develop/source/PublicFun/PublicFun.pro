@@ -37,7 +37,9 @@ HEADERS += \
     SendDataToService.h \
     Tools.h \
     DateDispose.h \
-    ProcessDispose.h
+    ProcessDispose.h \
+    datastructure.h \
+    NetLinkKernel.h
 
 unix {
     target.path = /usr/lib
